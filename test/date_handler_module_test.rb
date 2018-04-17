@@ -41,5 +41,5 @@ class DateHandlerTest < Minitest::Test
     assert_equal 2018, date.year
     assert_equal 1, date.month
     assert_equal 13, date.day
-  end
+  end  
 end
