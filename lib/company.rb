@@ -17,7 +17,7 @@ class Company
     def load_employees(file_name)
         contents = Loader.load(file_name)
         @employees = contents.map do |row|
-            Employee.new(row)
+            Employee.new.from_data(row)
         end
     end
 
