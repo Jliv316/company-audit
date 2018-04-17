@@ -5,12 +5,12 @@ class Employee
                 :role,
                 :start_date,
                 :end_date
-    def initialize(employee_id, name, role, start_date, end_date)
-        @id = employee_id.to_i
-        @name = name
-        @role = role
-        @start_date = format_date(start_date)
-        @end_date = format_date(end_date)
+    def initialize(data)
+        @id = data[:id].to_i
+        @name = data[:name]
+        @role = data[:role]
+        @start_date = format_date(data[:start_date])
+        @end_date = format_date(data[:end_date])
     end
 
     def format_date(date)

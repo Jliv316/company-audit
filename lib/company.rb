@@ -15,6 +15,10 @@ class Company
     end
 
     def load_employees(file_name)
+        contents = Loader.load(file_name)
+        @employees = contents.map do |row|
+            Employee.new(row)
+        end
     end
 
 end
