@@ -5,7 +5,8 @@ class Employee
                 :role,
                 :start_date,
                 :end_date
-    def initialize(employee_id = '', name = '', role = '', start_date = '', end_date = '')
+    
+    def initialize(employee_id = '', name = '', role = '', start_date = nil, end_date = nil)
         @id = employee_id.to_i
         @name = name
         @role = role
@@ -14,7 +15,7 @@ class Employee
     end
 
     def format_date(date)
-        return nil if date = ''
+        return nil if date == nil
         da = date.split('-')
         formatted_date = Date.new(da[0].to_i, da[1].to_i, da[2].to_i)
     end

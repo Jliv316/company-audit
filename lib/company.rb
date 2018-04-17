@@ -24,7 +24,9 @@ class Company
     def load_employees(file_name)
         contents = Loader.load(file_name)
         @employees = contents.map do |row|
-            Employee.new.from_data(row)
+            new_employee = Employee.new
+            new_employee.from_data(row)
+            new_employee
         end
         return load_response(@employees)
     end
@@ -59,7 +61,7 @@ class Company
 
     def find_employee_by_employee_id(employee_id)
         @employees.find do |employee|
-            employee.id = employee_id
+            employee.id == employee_id
         end
     end
 end

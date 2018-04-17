@@ -12,7 +12,7 @@ class TimeSheet
     end
 
     def format_date(date)
-        return nil if date = ''
+        return nil if date == ''
         da = date.split('-')
         formatted_date = Date.new(da[0].to_i, da[1].to_i, da[2].to_i)
     end

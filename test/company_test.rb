@@ -36,6 +36,7 @@ class CompanyTest < Minitest::Test
     assert @company.time_sheets.empty?
     @company.load_time_sheets('./data/timesheets.csv')
     refute @company.time_sheets.empty?
+
   end
 
   def test_it_sends_error_for_bad_data
@@ -53,5 +54,10 @@ class CompanyTest < Minitest::Test
     assert_equal true, actual_3[:success]
     expected_3 = {:success=>true, :error=>nil}
     assert_equal expected_3, actual_3
+  end
+
+  def test_find_employee_by_employee_id
+    @company.load_employees('./data/employees.csv')
+    assert_equal "John Smith", @company.find_employee_by_employee_id(2).name
   end
 end
