@@ -40,10 +40,21 @@ class CompanyTest < Minitest::Test
     assert_equal [], @company.time_sheets
   end
 
-  def test_it_can_add_employees
+  def test_it_can_add_employees_from_data
     assert @company.employees.empty?
     @company.load_employees('./data/employees.csv')
     refute @company.employees.empty?
   end
 
+  def test_it_can_add_projects_from_data
+    assert @company.projects.empty?
+    @company.load_projects('./data/projects.csv')
+    refute @company.projects.empty?
+  end
+
+  def test_it_can_add_time_sheets_from_data
+    assert @company.time_sheets.empty?
+    @company.load_time_sheets('./data/timesheets.csv')
+    refute @company.time_sheets.empty?
+  end
 end
