@@ -61,11 +61,17 @@ class CompanyTest < Minitest::Test
   def test_it_sends_error_for_bad_data
     actual_1 = @company.load_employees('./data/bad_employees.csv')
     assert_equal false, actual_1[:success]
+    expected_1 = {:success=>false, :error=>"bad data"}
+    assert_equal expected_1, actual_1
 
     actual_2 =  @company.load_projects('./data/bad_projects.csv')
     assert_equal false, actual_2[:success]
+    expected_2 = {:success=>false, :error=>"bad data"}
+    assert_equal expected_2, actual_2
 
     actual_3 = @company.load_time_sheets('./data/bad_timesheets.csv')
-    assert_equal false, actual_3[:success]
+    assert_equal true, actual_3[:success]
+    expected_3 = {:success=>true, :error=>nil}
+    assert_equal expected_3, actual_3
   end
 end
