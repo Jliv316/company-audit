@@ -56,5 +56,4 @@ class Company
         end
         return status
     end
-
 end
