@@ -56,4 +56,10 @@ class Company
         end
         return status
     end
+
+    def find_employee_by_employee_id(employee_id)
+        @employees.find do |employee|
+            employee.id = employee_id
+        end
+    end
 end
