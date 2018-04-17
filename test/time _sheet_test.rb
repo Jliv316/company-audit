@@ -1,10 +1,12 @@
 require './test/test_helper'
+require './lib/time_sheet'
 require './lib/employee'
+require './lib/project'
 
-class EmployeeTest < Minitest::Test
+class TimeSheetTest < Minitest::Test
 
   def setup
-    employee_id = '5'
+    employee_id = Employee.new()
     name = 'Sally Jackson'
     role = 'Engineer'
     start_date = '2015-01-01'
@@ -13,7 +15,7 @@ class EmployeeTest < Minitest::Test
   end
 
   def test_instantiation
-    assert_instance_of Employee, @employee
+    assert_instance_of TimeSheet, @time_sheet
   end
 
   def test_attributes
